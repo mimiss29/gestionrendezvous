@@ -1,0 +1,73 @@
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+        <h2 class="heading-section">Inscription</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <div class="login-wrap p-4 p-md-5">
+          <div class="icon d-flex align-items-center justify-content-center bg-info">
+            <span class="fa fa-user-o"></span>
+          </div>
+          <form [formGroup]="registerForm" (ngSubmit)="register()" class="login-form">
+            <div class="form-group">
+              <input type="text" formControlName="nom" class="form-control rounded-left" placeholder="Nom ..." required>
+              <div *ngIf="registerForm.get('nom')?.invalid && registerForm.get('nom')?.touched" class="text-danger">
+                Nom requis
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" formControlName="prenom" class="form-control rounded-left" placeholder="Prénom ...">
+            </div>
+            <div class="form-group">
+              <input type="text" formControlName="adresse" class="form-control rounded-left" placeholder="Adresse ...">
+            </div>
+            <div class="form-group">
+              <select formControlName="sexe" class="form-control rounded-left">
+                <option value="">Sélectionnez</option>
+                <option value="homme">Homme</option>
+                <option value="femme">Femme</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" formControlName="telephone" class="form-control rounded-left" placeholder="Téléphone ...">
+            </div>
+            <div class="form-group">
+              <input type="email" formControlName="email" class="form-control rounded-left" placeholder="Adresse email ..." required>
+              <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
+                Email requis et doit être valide
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="password" formControlName="mdp" class="form-control rounded-left" placeholder="Mot de passe ..." required>
+              <div *ngIf="registerForm.get('mdp')?.invalid && registerForm.get('mdp')?.touched" class="text-danger">
+                Mot de passe requis et doit avoir au moins 8 caractères
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="password" formControlName="mdp_confirmation" class="form-control rounded-left" placeholder="Confirmer le mot de passe ..." required>
+              <div *ngIf="registerForm.errors?.['mismatch'] && registerForm.get('mdp_confirmation')?.touched" class="text-danger">
+                Les mots de passe ne correspondent pas
+              </div>
+            </div>
+            <div class="form-group">
+              <select formControlName="type" class="form-control rounded-left" required>
+                <option value="">Sélectionnez</option>
+                <option value="medecin">Médecin</option>
+                <option value="patient">Patient</option>
+                <option value="admin">Admin</option>
+                <option value="secretaire">Secrétaire</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-info rounded submit p-3 px-5" [disabled]="loading">S'inscrire</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+</section>

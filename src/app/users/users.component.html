@@ -1,0 +1,61 @@
+<div class="container container-fluid">
+  <h5 class="text-center text-primary">Gestion des utilisateurs</h5> 
+  <div class="row mt-3">
+       
+       <!-- La liste  -->
+       <div class="col-md-8 mt-2">
+        <h5 class="text-primary">Liste des utilisateurs</h5> 
+        <div class="card-body shadow py-2">
+          <table class="table table-bordered">
+              <tr class="text-center">
+                  <th class="border-end">Nom Complet</th>
+                  <th class="border-end">Email</th>
+                  <th class="border-end">Type</th>
+                  <th class="border-end">Actions</th>
+              </tr>
+              <tr class="text-center" *ngFor="let user of users">
+                <td class="border-end">{{ user.nom }}</td>
+                <td class="border-end">{{ user.email }}</td>
+                <td class="border-end">{{ user.type }}</td>
+                <td class="border-end">
+                   <a type="submit" class="me-2" (click)="updateUser(user.id)">
+                    <i class="fa-solid fa-pen text-warning"></i>
+                  </a>
+                  <a type="submit" class="" (click)="deleteUser(user.id)">
+                    <i class="fa-solid fa-trash text-danger ms-5"></i>
+                  </a>
+                  
+                </td>
+              </tr>
+          </table>
+        </div> 
+       </div>
+        
+       <!-- Formulaire  -->
+       <div class="col-md-4 mt-2">
+        <h5 class=" text-primary">Formulaire d'Ajout</h5> 
+        <div class="card-body shadow py-2">
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-group">
+              <input formControlName="nom" type="text" placeholder="Nom complet ..." class="form-control mt-2" required>
+              <input formControlName="email" type="email" placeholder="Votre mail ..." class="form-control mt-2" required>
+
+              <select formControlName="type" class="form-control mt-2" required>
+                  <option class="form-group" disabled selected>Choisissez un type</option>
+                  <option class="form-group" value="gestionnaire">Medecin</option>
+                  <option class="form-group" value="client">Secretaire</option>
+                  <option class="form-group" value="gestionnaire">Administrateur</option>
+                  <option class="form-group" value="client">Patient</option>
+                 
+              </select>
+              <button type="submit" class="btn btn-primary mt-3 ms-2">Ajouter</button>
+          </form>
+        </div>
+       </div>
+  </div>
+</div> 
+      
+      
+   
+   
+   
+   

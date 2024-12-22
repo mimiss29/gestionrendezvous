@@ -1,0 +1,24 @@
+<div class="container container-fluid">
+    <h5 class="text-center text-primary">Gestion des Patients</h5>
+    <div class="row mt-3">
+      <!-- La liste -->
+      <div class="col-md-8 mt-2">
+        <h5 class="text-primary">Liste des Patients</h5>
+        <div class="card-body shadow py-2">
+          <table class="table table-bordered">
+            <tr class="text-center">
+              <th class="border-end">Nom Complet</th>
+              <th class="border-end">Actions</th>
+            </tr>
+            <tr class="text-center" *ngFor="let patient of patients">
+              <td class="border-end">{{ patient.nom }} {{ patient.prenom }}</td>
+              <td class="border-end">
+                <button class="btn btn-primary" (click)="voirDetails(patient.id)">Voir Détails</button>
+                
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>

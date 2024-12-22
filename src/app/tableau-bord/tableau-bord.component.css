@@ -1,0 +1,46 @@
+.dashboard-container {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-info {
+    font-size: 14px;
+}
+
+.cards-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 200px; /* Ajustez la largeur ici */
+    text-align: center;
+}
+
+.card h2 {
+    font-size: 16px; /* Ajustez la taille du titre ici */
+    margin: 0;
+}
+
+.icon-size {
+    font-size: 24px; /* Ajustez la taille de l'icône ici */
+    color: #007bff;
+}
+
+.mt-2 {
+    margin-top: 10px;
+}

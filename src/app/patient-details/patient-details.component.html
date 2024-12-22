@@ -1,0 +1,35 @@
+<div *ngIf="patient" class="container container-fluid">
+    <h5 class="text-center text-primary">Détails du Patient</h5>
+    <div class="row mt-3">
+      <div class="col-md-8 mt-2">
+        <h5 class="text-primary">Détails du Patient</h5>
+        <div class="card-body shadow py-2">
+          <table class="table table-bordered">
+            <tbody>
+              <tr class="text-center">
+                <th class="border-end">Nom Complet</th>
+                <td class="border-end">{{ patient.nom }} {{ patient.prenom }}</td>
+              </tr>
+              <tr class="text-center">
+                <th class="border-end">Genre</th>
+                <td class="border-end">{{ patient.sexe }}</td>
+              </tr>
+              <tr class="text-center">
+                <th class="border-end">Adresse</th>
+                <td class="border-end">{{ patient.adresse }}</td>
+              </tr>
+              <tr class="text-center">
+                <th class="border-end">Téléphone</th>
+                <td class="border-end">{{ patient.telephone }}</td>
+              </tr>
+              <tr class="text-center">
+                <th class="border-end">Email</th>
+                <td class="border-end">{{ patient.email }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

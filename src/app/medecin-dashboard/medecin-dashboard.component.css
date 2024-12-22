@@ -1,0 +1,25 @@
+.medecin-dashboard {
+    padding: 20px;
+  }
+  
+  .card-header h2 {
+    margin-bottom: 0;
+  }
+  
+  .action-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .action-button:hover {
+    background-color: #ff0000;
+  }
+  
+  .list-group-item.active {
+    background-color: #007bff;
+    color: white;
+  }
+  

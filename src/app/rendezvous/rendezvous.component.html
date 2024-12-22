@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-5 mt-3">
+      <h5 class="text-primary">Formulaire d'ajout de rendez-vous</h5>
+      <div class="card-body shadow py-2">
+        <form [formGroup]="rendezvousForm" (ngSubmit)="onSubmit()" class="form-group">
+          <div class="mb-3">
+            <label for="medecin_id">Sélectionnez un médecin :</label>
+            <select formControlName="medecin_id" id="medecin_id" class="form-control" required>
+              <option *ngFor="let medecin of medecins" [value]="medecin.id">{{ medecin.nom }} {{ medecin.prenom }}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="patient_id">Sélectionnez un patient :</label>
+            <select formControlName="patient_id" id="patient_id" class="form-control" required>
+              <option *ngFor="let patient of patients" [value]="patient.id">{{ patient.nom }} {{ patient.prenom }}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" class="form-control" id="date" formControlName="date" required>
+          </div>
+          <div class="mb-3">
+            <label for="heure" class="form-label">Heure</label>
+            <input type="time" class="form-control" id="heure" formControlName="heure" required>
+          </div>
+          <div class="mb-3">
+            <label for="lieu" class="form-label">Lieu</label>
+            <input type="text" class="form-control" id="lieu" formControlName="lieu" required>
+          </div>
+          <div class="mb-3">
+            <label for="statut" class="form-label">Status</label>
+            <select class="form-control " id="statut" formControlName="status">
+              <option class="form-group" value="validé">Validé</option>
+              <option class="form-group" value="en cours">En cours</option>
+              <option class="form-group" value="en_attente">En attente</option>
+              <option  class="form-group" value="confirmé">Confirmé</option>
+              <option  class="form-group"  value="annulé">Annulé</option>
+              <option class="form-group" value="terminé">Terminé</option>
+            </select>
+            <!-- <select formControlName="type" class="form-control mt-2" required>
+              <option class="form-group" disabled selected>Choisissez un type</option>
+              <option class="form-group" value="gestionnaire">Medecin</option>
+              <option class="form-group" value="client">Secretaire</option>
+              <option class="form-group" value="gestionnaire">Administrateur</option>
+              <option class="form-group" value="client">Patient</option>
+             
+          </select> -->
+          </div>
+          <button type="submit" class="btn btn-primary mt-3 ms-2">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-7 mt-3">
+      <h5 class="text-primary">Liste des rendez-vous</h5>
+      <div class="card-body shadow py-2">
+        <table class="table table-bordered">
+          <thead>
+            <tr class="text-center">
+              <th class="border-end">Médecin</th>
+              <th class="border-end">Patient</th>
+              <th class="border-end">Date</th>
+              <th class="border-end">Heure</th>
+              <th class="border-end">Lieu</th>
+              <th class="border-end">Statut</th>
+              <th class="border-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rendezvous of rendezvousList" class="text-center">
+              <td class="border-end">{{ rendezvous.medecin.nom }} {{ rendezvous.medecin.prenom }}</td>
+              <td class="border-end">{{ rendezvous.patient.nom }} {{ rendezvous.patient.prenom }}</td>
+              <td class="border-end">{{ rendezvous.date }}</td>
+              <td class="border-end">{{ rendezvous.heure }}</td>
+              <td class="border-end">{{ rendezvous.lieu }}</td>
+              <td class="border-end">{{ rendezvous.status }}</td>
+              <td class="border-end">
+                <a href="javascript:void(0)" class="" (click)="deleteRendezvous(rendezvous.id)">
+                  <i class="fa-solid fa-trash text-danger"></i>
+                </a>
+                <a href="javascript:void(0)" class="ms-2" (click)="confirmRendezvous(rendezvous.id)">
+                  <i class="fa-solid fa-check text-success"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

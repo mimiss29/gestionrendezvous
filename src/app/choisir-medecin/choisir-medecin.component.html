@@ -1,0 +1,11 @@
+<!-- src/app/choisir-medecin/choisir-medecin.component.html -->
+<div class="choisir-medecin">
+    <h1>Choisir un Médecin</h1>
+    <select (change)="onSelectMedecin($event)">
+      <option *ngFor="let medecin of medecins" [value]="medecin.id">
+        {{ medecin.nom }} {{ medecin.prenom }} - {{ medecin.specialite }}
+      </option>
+    </select>
+    <button (click)="goToConfirmerRv()">Suivant</button>
+  </div>
+  

@@ -1,0 +1,45 @@
+<!-- src/app/listecreneauxdisponibilites/listecreneauxdisponibilites.component.html -->
+
+<div class="container container-fluid">
+    <h5 class="text-center text-primary">Gestion des Créneaux</h5>
+    <div class="row mt-3">
+      <!-- La liste des créneaux de disponibilités -->
+      <div class="col-md-12 mt-2">
+        <h5 class="text-primary">Liste des Disponibilités</h5>
+        <div class="card-body shadow py-2">
+          <div *ngFor="let date of (slotsByDate | keyvalue)">
+            <h6>{{ date.key }}</h6>
+            <table class="table table-bordered">
+              <thead>
+                <tr class="text-center">
+                  <th class="border-end">Date de Début</th>
+                  <th class="border-end">Date de Fin</th>
+                  <th class="border-end">Statut</th>
+                  <th class="border-end">Réservé</th>
+                  <th class="border-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="text-center" *ngFor="let slot of date.value">
+                  <td class="border-end">{{ slot.date_debut | date:'short' }}</td>
+                  <td class="border-end">{{ slot.date_fin | date:'short' }}</td>
+                  <td class="border-end">{{ slot.statut }}</td>
+                  <td class="border-end">
+                    {{ slot.est_reserve === 1 ? 'Oui' : 'Non' }}
+                  </td>
+                  <td class="border-end">
+                    <button
+                      class="btn btn-primary"
+                      (click)="reserveSlot(slot)"
+                      [disabled]="slot.statut === 'réservé' || slot.est_reserve === 1">
+                      {{ slot.statut === 'réservé' || slot.est_reserve === 1 ? 'Déjà réservé' : 'Prendre RDV' }}
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

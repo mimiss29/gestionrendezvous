@@ -1,0 +1,20 @@
+.container {
+    margin-top: 20px;
+  }
+  
+  .list-group-item {
+    cursor: pointer;
+  }
+  
+  .btn-outline-primary {
+    margin-left: 10px;
+  }
+  
+  .text-primary {
+    font-weight: bold;
+  }
+  
+  .text-success {
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,9 @@
+<!-- src/app/specialite-card/specialite-card.component.html -->
+<div class="specialite-card">
+    <div class="image-placeholder">
+      <img src="assets/img/gyneco.jpg" alt="{{ specialite.nom }}" />
+    </div>
+    <h2>{{ specialite.nom }}</h2>
+    <p *ngIf="specialite.description">{{ specialite.description }}</p>
+  </div>
+  
